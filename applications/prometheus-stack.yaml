@@ -14,7 +14,7 @@ spec:
     path: charts/kube-prometheus-stack
     helm:
       valueFiles:
-        - charts/values-60.yaml
+        - values-60.yaml
   syncPolicy:
     automated:
       prune: true
