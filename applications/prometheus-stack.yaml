@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus-stack
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monito
+  source:
+    repoURL: https://github.com/githubjmvd/prometheus-stack-gitops.git
+    targetRevision: main
+    path: charts/kube-prometheus-stack
+    helm:
+      valueFiles:
+        - charts/values-60.yaml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
