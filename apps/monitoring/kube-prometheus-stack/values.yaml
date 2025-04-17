@@ -1,0 +1,12 @@
+grafana:
+  adminPassword: prom-operator
+  service:
+    type: NodePort
+prometheus:
+  service:
+    type: NodePort
+alertmanager:
+  service:
+    type: NodePort
+nodeExporter:
+  enabled: true
